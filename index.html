@@ -21,9 +21,7 @@
             --border-color: #00607f;    
             --date-color: #40c4ff;      
             --avatar-bg: #004d60;       
-            
             --danger-color: #ff453a;    
-            --border-red: #ff453a;      
         }
 
         body.light-mode {
@@ -39,13 +37,11 @@
             --border-color: #b2ebf2;    
             --date-color: #0288d1;      
             --avatar-bg: #b2ebf2;       
-            
             --danger-color: #ff3b30;    
-            --border-red: #ff3b30;
         }
 
         /* =========================================================================
-           |  PHẦN 2: CSS TRÌNH BÀY GIAO DIỆN                                      |
+           |  PHẦN 2: CSS TRÌNH BÀY GIAO DIỆN CHÍNH                                |
            ========================================================================= */
         body {
             background-color: var(--bg-color);
@@ -83,7 +79,6 @@
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            transition: background-color 0.3s;
             color: var(--accent-color); 
         }
         .user-info h2 {
@@ -114,18 +109,16 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background-color 0.2s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            transition: background-color 0.2s, color 0.3s, border-color 0.3s;
         }
         .action-btn:hover {
             border-color: var(--accent-color);
             color: var(--accent-color);
-            box-shadow: 0 0 10px var(--accent-glow);
         }
         .action-btn:active {
             background-color: var(--btn-active);
         }
 
-        /* --- 3. Khối Công cụ Trang chủ --- */
         .tool-card {
             background-color: var(--card-bg);
             border-radius: 16px;
@@ -135,13 +128,7 @@
             justify-content: space-between;
             margin-top: 15px;
             border: 1px solid var(--border-color);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s, border-color 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .tool-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px var(--accent-glow);
-            border-color: var(--accent-color);
         }
         .tool-left {
             display: flex;
@@ -157,13 +144,11 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            transition: background-color 0.3s;
         }
         .tool-details h3 {
             margin: 0;
             font-size: 15px;
             font-weight: 700;
-            letter-spacing: 0.3px;
         }
         .tool-details p {
             margin: 4px 0 0;
@@ -181,22 +166,13 @@
             font-weight: bold;
             cursor: pointer;
             text-decoration: none; 
-            transition: opacity 0.2s, box-shadow 0.2s, background-color 0.3s, color 0.3s;
             display: inline-block;
             white-space: nowrap;
         }
         body.light-mode .copy-btn-main {
             color: #ffffff; 
         }
-        .copy-btn-main:hover {
-            box-shadow: 0 0 12px var(--accent-color);
-            opacity: 0.9;
-        }
-        .copy-btn-main:active {
-            opacity: 0.8;
-        }
 
-        /* --- 4. Menu thả xuống --- */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -209,7 +185,6 @@
             z-index: 10;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: background-color 0.3s, border-color 0.3s;
         }
         .close-menu-row {
             display: flex;
@@ -221,13 +196,9 @@
             font-size: 14px;
             border-bottom: 1px solid var(--border-color);
             cursor: pointer;
-            transition: background-color 0.2s;
         }
-        .close-menu-row:active, .close-menu-row:hover {
+        .close-menu-row:hover {
             background-color: var(--btn-bg);
-        }
-        .close-icon {
-            font-size: 18px;
         }
         .dropdown-content a {
             color: var(--text-color);
@@ -238,12 +209,11 @@
             font-size: 14px;
             font-weight: 500;
             border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.2s, color 0.3s;
         }
         .dropdown-content a:last-child {
             border-bottom: none;
         }
-        .dropdown-content a:hover, .dropdown-content a:active {
+        .dropdown-content a:hover {
             background-color: var(--btn-bg);
             color: var(--accent-color); 
         }
@@ -252,19 +222,14 @@
             font-size: 18px;
             color: var(--accent-color); 
         }
+        .show { display: block; }
 
-        .show {
-            display: block;
-        }
-
-        /* --- 5. Khối Cảnh báo --- */
         .disclaimer-section {
             background-color: var(--card-bg);
             border-radius: 16px;
-            padding: 15px;
+            padding: 20px 15px;
             margin-top: 25px;
             border: 1px solid var(--border-color);
-            transition: background-color 0.3s, border-color 0.3s;
         }
         .warning-header {
             display: flex;
@@ -281,81 +246,390 @@
             border-radius: 8px;
             margin-bottom: 12px;
             font-size: 13px;
-            line-height: 1.5;
-            color: var(--text-color);
-            transition: background-color 0.3s;
+            line-height: 1.6;
         }
+        .warning-box:last-child { margin-bottom: 0; }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: var(--date-color);
+        }
+        .footer-links span {
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .footer-links span:hover { color: var(--accent-color); }
+        .footer-copyright {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-size: 11px;
+            color: var(--date-color);
+            opacity: 0.7;
+        }
+
+        /* =========================================================================
+           |  PHẦN 3: CSS CHO KHỐI ĐIỀU KHOẢN TRANG CON                            |
+           ========================================================================= */
+        .legal-page {
+            display: none; 
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-top: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+        }
+        .legal-lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .legal-lang-btn {
+            background-color: var(--btn-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .legal-lang-btn.active {
+            background-color: var(--accent-color);
+            color: #001a1f;
+            border-color: var(--accent-color);
+        }
+        body.light-mode .legal-lang-btn.active { color: #ffffff; }
+        
+        .legal-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin: 0 0 5px 0;
+            letter-spacing: 0.5px;
+        }
+        .legal-subtitle {
+            text-align: center;
+            font-size: 12px;
+            color: var(--date-color);
+            font-weight: bold;
+            margin: 0 0 25px 0;
+            text-transform: uppercase;
+        }
+        .legal-section {
+            margin-bottom: 20px;
+        }
+        .legal-section h4 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .legal-section h4 span {
+            margin-right: 6px;
+        }
+        .legal-section p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-align: justify;
+        }
+        .back-home-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: none;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 30px auto 10px auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .back-home-btn:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <div class="header-top">
-        <div class="user-profile">
-            <div class="avatar">👨‍💻</div>
-            <div class="user-info">
-                <h2>Tiến Dũng</h2>
-                <p id="realtime-clock">16/05/2026 | 18:15:00</p>
+    <div id="main-content-wrapper">
+        <div class="header-top">
+            <div class="user-profile">
+                <div class="avatar">👨‍💻</div>
+                <div class="user-info">
+                    <h2>Tiến Dũng</h2>
+                    <p id="realtime-clock">16/05/2026 | 18:15:00</p>
+                </div>
             </div>
-        </div>
-        <div class="header-actions">
-            <button class="action-btn" id="langBtn" onclick="toggleLanguage()">VI</button>
-            <button class="action-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
-            <button class="action-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+            <div class="header-actions">
+                <button class="action-btn" id="langBtn" onclick="toggleLanguage()">VI</button>
+                <button class="action-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+                <button class="action-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+            </div>
+
+            <div id="myDropdown" class="dropdown-content">
+                <div class="close-menu-row" onclick="toggleMenu()">
+                    <span id="text-close">Đóng</span> <span class="close-icon">✖</span>
+                </div>
+                <a href="https://zalo.me/g/4mc0g7tsr46siyxq4bx6" target="_blank"><span class="menu-icon">💬</span> <span id="text-zalo">Nhóm Zalo</span></a>
+                <a href="https://zalo.me/0963095545" target="_blank"><span class="menu-icon">👨‍💼</span> <span id="text-admin">Admin</span></a>
+            </div>
         </div>
 
-        <div id="myDropdown" class="dropdown-content">
-            <div class="close-menu-row" onclick="toggleMenu()">
-                <span id="text-close">Đóng</span> <span class="close-icon">✖</span>
+        <div class="tool-card">
+            <div class="tool-left">
+                <div class="tool-icon">🎮</div>
+                <div class="tool-details">
+                    <h3>COINMASTER</h3>
+                    <p>Phiên bản: Mới Nhất</p>
+                </div>
             </div>
-            <a href="https://zalo.me/g/4mc0g7tsr46siyxq4bx6" target="_blank"><span class="menu-icon">💬</span> <span id="text-zalo">Nhóm Zalo</span></a>
-            <a href="https://zalo.me/0963095545" target="_blank"><span class="menu-icon">👨‍💼</span> <span id="text-admin">Admin</span></a>
+            <a href="https://tinyurl.com/DUNG2540" target="_blank" class="copy-btn-main">TẢI XUỐNG</a>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-left">
+                <div class="tool-icon">📜</div>
+                <div class="tool-details">
+                    <h3>WEB CHỨNG CHỈ</h3>
+                    <p>dungios.io.vn</p>
+                </div>
+            </div>
+            <a href="https://dungios.io.vn/" target="_blank" class="copy-btn-main">TRUY CẬP</a>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-left">
+                <div class="tool-icon">💬</div>
+                <div class="tool-details">
+                    <h3>NHÓM ZALO</h3>
+                    <p>Cộng đồng giao lưu</p>
+                </div>
+            </div>
+            <a href="https://zalo.me/g/4mc0g7tsr46siyxq4bx6" target="_blank" class="copy-btn-main">THAM GIA</a>
+        </div>
+
+        <div class="disclaimer-section">
+            <div class="warning-header">⚠️ Miễn trừ trách nhiệm</div>
+            <div class="warning-box">
+                Không khuyến khích các hành vi vượt quá giới hạn. Việc sử dụng sai mục đích hoặc vi phạm điều khoản hoàn toàn thuộc trách nhiệm của người sử dụng.
+            </div>
+            <div class="warning-box">
+                Khi tiếp tục sử dụng, bạn đồng ý tự chịu hoàn toàn trách nhiệm đối với các mục đích xấu làm ảnh hưởng đến nhà phát hành hoặc các vấn đề liên quan khác.
+            </div>
+            <div class="warning-box">
+                Tác giả sẽ không chịu trách nhiệm nếu bạn sử dụng sai quy định. Nếu không đồng ý điều khoản & điều kiện, bạn có thể dừng sử dụng ngay lập tức.
+            </div>
         </div>
     </div>
 
-    <div class="tool-card">
-        <div class="tool-left">
-            <div class="tool-icon">🎮</div>
-            <div class="tool-details">
-                <h3>COINMASTER</h3>
-                <p>Phiên bản: Mới Nhất</p>
+
+    <div id="page-terms" class="legal-page">
+        <div class="legal-lang-toggle">
+            <button class="legal-lang-btn active" onclick="setLegalLang('vi')">Vietnamese</button>
+            <button class="legal-lang-btn" onclick="setLegalLang('en')">English</button>
+        </div>
+        <div class="lang-block-vi">
+            <h3 class="legal-title">DUNGIOS SPEED SERVICE</h3>
+            <div class="legal-subtitle">Điều khoản & Điều kiện 16/5/2026</div>
+            <div class="legal-section">
+                <h4><span>1.</span> Chấp nhận điều khoản</h4>
+                <p>Bằng việc truy cập vào hệ thống tiendungios.click, bạn mặc định đồng ý với toàn bộ quy định này.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>2.</span> Quyền sở hữu trí tuệ</h4>
+                <p>Mọi mã nguồn và công cụ mạng thương hiệu DUNGIOS SPEED đều thuộc sở hữu độc quyền của Tiến Dũng.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>3.</span> Miễn trừ trách nhiệm</h4>
+                <p>Chúng tôi không chịu trách nhiệm cho bất kỳ rủi ro nào phát sinh do vi phạm chính sách bên thứ ba.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>4.</span> Quy định sử dụng</h4>
+                <p>Nghiêm cấm hành vi lợi dụng danh nghĩa để lừa đảo. Chúng tôi có quyền từ chối dịch vụ mà không báo trước.</p>
             </div>
         </div>
-        <a href="https://tinyurl.com/Dung-IOS" target="_blank" class="copy-btn-main">TẢI XUỐNG</a>
-    </div>
-
-    <div class="tool-card">
-        <div class="tool-left">
-            <div class="tool-icon">📜</div>
-            <div class="tool-details">
-                <h3>WEB CHỨNG CHỈ</h3>
-                <p>dungios.io.vn</p>
+        <div class="lang-block-en" style="display:none;">
+            <h3 class="legal-title">DUNGIOS SPEED SERVICE</h3>
+            <div class="legal-subtitle">Terms & Conditions 16/5/2026</div>
+            <div class="legal-section">
+                <h4><span>1.</span> Acceptance of Terms</h4>
+                <p>By accessing tiendungios.click, you automatically agree to follow all these specified regulations.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>2.</span> Intellectual Property</h4>
+                <p>All source codes and network tools under DUNGIOS SPEED brand are exclusively owned by Tien Dung.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>3.</span> Disclaimer</h4>
+                <p>We hold no responsibility for any risks arising from violations of third-party policies.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>4.</span> Usage Rules</h4>
+                <p>Any fraudulent behavior using our name is strictly banned. We reserve the right to terminate services without notice.</p>
             </div>
         </div>
-        <a href="https://dungios.io.vn/" target="_blank" class="copy-btn-main">TRUY CẬP</a>
+        <button class="back-home-btn" onclick="navigateToHome()">← Quay lại trang chủ</button>
     </div>
 
-    <div class="tool-card">
-        <div class="tool-left">
-            <div class="tool-icon">💬</div>
-            <div class="tool-details">
-                <h3>NHÓM ZALO</h3>
-                <p>Cộng đồng giao lưu</p>
+    <div id="page-agreement" class="legal-page">
+        <div class="legal-lang-toggle">
+            <button class="legal-lang-btn active" onclick="setLegalLang('vi')">Vietnamese</button>
+            <button class="legal-lang-btn" onclick="setLegalLang('en')">English</button>
+        </div>
+        <div class="lang-block-vi">
+            <h3 class="legal-title">DUNGIOS SPEED SERVICE</h3>
+            <div class="legal-subtitle">Thỏa thuận dịch vụ • Ver 2.0.26</div>
+            <div class="legal-section">
+                <h4><span>⚡ 1.</span> Quy định sử dụng</h4>
+                <p>Sản phẩm tại DUNGIOS SPEED chỉ phục vụ mục đích trải nghiệm cá nhân. Nghiêm cấm sử dụng vào các hoạt động vi phạm pháp luật.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>⚡ 2.</span> Trách nhiệm tài khoản</h4>
+                <p>Chúng tôi không chịu trách nhiệm đối với các rủi ro vi phạm các chính sách từ bên thứ 3 (Nếu người dùng cố tình vi phạm quy định) do chính sách từ bên thứ ba hãy lưu ý.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>⚡ 3.</span> Chính sách bảo hành</h4>
+                <p>Dịch vụ chỉ được bảo hành nếu lỗi phát sinh trực tiếp từ hệ thống. Không bảo hành lỗi do người dùng hoặc nhà phát hành gốc.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>⚡ 4.</span> Bảo mật thông tin</h4>
+                <p>Mọi dữ liệu khách hàng được bảo mật tuyệt đối. Admin Tiến Dũng cam kết không chia sẻ thông tin cho bất kỳ bên nào khác.</p>
             </div>
         </div>
-        <a href="https://zalo.me/g/4mc0g7tsr46siyxq4bx6" target="_blank" class="copy-btn-main">THAM GIA</a>
+        <div class="lang-block-en" style="display:none;">
+            <h3 class="legal-title">DUNGIOS SPEED SERVICE</h3>
+            <div class="legal-subtitle">Service Agreement • Ver 2.0.26</div>
+            <div class="legal-section">
+                <h4><span>⚡ 1.</span> Terms of Use</h4>
+                <p>Products at DUNGIOS SPEED are intended solely for personal experience. Usage in any illegal activities is strictly prohibited.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>⚡ 2.</span> Account Responsibility</h4>
+                <p>We are not liable for any risks involving third-party policy violations if users intentionally infringe upon those terms.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>⚡ 3.</span> Warranty Policy</h4>
+                <p>Services are covered only if errors arise directly from our system. No warranty for user-inflicted or original developer errors.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>⚡ 4.</span> Data Security</h4>
+                <p>All customer data is strictly confidential. Admin Tien Dung guarantees no data leakage to any third parties.</p>
+            </div>
+        </div>
+        <button class="back-home-btn" onclick="navigateToHome()">← Quay lại trang chủ</button>
     </div>
 
-    <div class="disclaimer-section">
-        <div class="warning-header">⚠️ Miễn trừ trách nhiệm</div>
-        <div class="warning-box">
-            Không khuyến khích các hành vi vượt quá giới hạn. Việc sử dụng sai mục đích hoặc vi phạm điều khoản hoàn toàn thuộc trách nhiệm của người sử dụng.
+    <div id="page-privacy" class="legal-page">
+        <div class="legal-lang-toggle">
+            <button class="legal-lang-btn active" onclick="setLegalLang('vi')">Vietnamese</button>
+            <button class="legal-lang-btn" onclick="setLegalLang('en')">English</button>
         </div>
-        <div class="warning-box">
-            Tác giả sẽ không chịu trách nhiệm nếu bạn sử dụng sai quy định. Nếu không đồng ý điều khoản & điều kiện, bạn có thể dừng sử dụng ngay lập tức.
+        <div class="lang-block-vi">
+            <h3 class="legal-title">PRIVACY POLICY</h3>
+            <div class="legal-subtitle">Chính sách bảo mật • 16/5/2026</div>
+            <div class="legal-section">
+                <h4><span>🌹 1.</span> Thu thập thông tin</h4>
+                <p>Chúng tôi chỉ thu thập các thông tin cần thiết như tên người dùng, thông tin liên lạc hoặc dữ liệu tài khoản game để thực hiện dịch vụ theo yêu cầu của bạn.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>🌹 2.</span> Mục đích sử dụng</h4>
+                <p>Dữ liệu được sử dụng để xử lý đơn hàng, hỗ trợ kỹ thuật và thông báo các cập nhật mới nhất từ DUNGIOS SPEED. Chúng tôi cam kết không spam.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>🌹 3.</span> Cam kết bảo mật</h4>
+                <p>Mọi thông tin đăng nhập và mật khẩu được xử lý qua hệ thống mã hóa. Sau khi dịch vụ hoàn tất, dữ liệu nhạy cảm sẽ được xóa bỏ khỏi bộ nhớ tạm để đảm bảo an toàn.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>🌹 4.</span> Chia sẻ dữ liệu</h4>
+                <p>Tiến Dũng tuyệt đối không bán, trao đổi hoặc chia sẻ thông tin cá nhân của bạn cho bất kỳ bên thứ ba nào vì mục đích thương mại.</p>
+            </div>
         </div>
+        <div class="lang-block-en" style="display:none;">
+            <h3 class="legal-title">PRIVACY POLICY</h3>
+            <div class="legal-subtitle">Privacy Policy • 16/5/2026</div>
+            <div class="legal-section">
+                <h4><span>🌹 1.</span> Data Collection</h4>
+                <p>We only collect basic information such as usernames, contact info, or game account data needed to provide services per your explicit request.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>🌹 2.</span> Intended Purpose</h4>
+                <p>Data is utilized to process orders, offer tech support, and deliver crucial updates from DUNGIOS SPEED. We strongly against spamming.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>🌹 3.</span> Security Commitment</h4>
+                <p>All login credentials and passwords are encrypted. Upon service completion, sensitive data is wiped from cache to ensure ultimate protection.</p>
+            </div>
+            <div class="legal-section">
+                <h4><span>🌹 4.</span> Data Sharing</h4>
+                <p>Tien Dung absolutely will not sell, trade, or share your personal information with any external parties for marketing purposes.</p>
+            </div>
+        </div>
+        <button class="back-home-btn" onclick="navigateToHome()">← Quay lại trang chủ</button>
+    </div>
+
+
+    <div class="footer-links">
+        <span onclick="navigateToPage('page-terms')">Điều khoản</span> | 
+        <span onclick="navigateToPage('page-agreement')">Thỏa thuận Người dùng</span> | 
+        <span onclick="navigateToPage('page-privacy')">Chính sách Bảo mật</span>
+    </div>
+    <div class="footer-copyright">
+        © 2026 DungiOS • Thiết kế bởi Tiến Dũng
     </div>
 
     <script>
+        function navigateToPage(pageId) {
+            document.getElementById('main-content-wrapper').style.display = 'none';
+            const pages = document.getElementsByClassName('legal-page');
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            const targetPage = document.getElementById(pageId);
+            targetPage.style.display = 'block';
+            setLegalLang('vi');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function navigateToHome() {
+            const pages = document.getElementsByClassName('legal-page');
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById('main-content-wrapper').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function setLegalLang(lang) {
+            const activePages = document.querySelectorAll('.legal-page');
+            activePages.forEach(page => {
+                const viBlock = page.querySelector('.lang-block-vi');
+                const enBlock = page.querySelector('.lang-block-en');
+                const buttons = page.querySelectorAll('.legal-lang-btn');
+                
+                if(lang === 'vi') {
+                    if(viBlock) viBlock.style.display = 'block';
+                    if(enBlock) enBlock.style.display = 'none';
+                    buttons[0].classList.add('active');
+                    buttons[1].classList.remove('active');
+                } else {
+                    if(viBlock) viBlock.style.display = 'none';
+                    if(enBlock) enBlock.style.display = 'block';
+                    buttons[0].classList.remove('active');
+                    buttons[1].classList.add('active');
+                }
+            });
+        }
+
         let isLightMode = false;
         function toggleTheme() {
             isLightMode = !isLightMode;
