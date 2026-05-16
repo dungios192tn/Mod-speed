@@ -9,7 +9,6 @@
            |  PHẦN 1: CẤU HÌNH MÀU SẮC (CSS VARIABLES)                             |
            ========================================================================= */
         :root {
-            /* --- BẢNG MÀU CHẾ ĐỘ TỐI (DARK MODE - MẶC ĐỊNH) --- */
             --bg-color: #001a1f;        
             --text-color: #ffffff;      
             --header-bg: #003d4d;       
@@ -23,12 +22,10 @@
             --date-color: #40c4ff;      
             --avatar-bg: #004d60;       
             
-            /* --- CÁC MÀU CHỨC NĂNG --- */
             --danger-color: #ff453a;    
             --border-red: #ff453a;      
         }
 
-        /* --- BẢNG MÀU CHẾ ĐỘ SÁNG (LIGHT MODE) --- */
         body.light-mode {
             --bg-color: #e0f7fa;        
             --text-color: #004d40;      
@@ -60,7 +57,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- 1. Header & User Profile --- */
         .header-top {
             display: flex;
             justify-content: space-between;
@@ -102,7 +98,6 @@
             font-weight: bold;
         }
         
-        /* --- 2. Nút bấm Chức năng trên Header --- */
         .header-actions {
             display: flex;
             gap: 8px;
@@ -138,7 +133,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 15px;
             border: 1px solid var(--border-color);
             transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s, border-color 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -176,19 +171,19 @@
             color: var(--date-color);
         }
         
-        /* Nút SAO CHÉP */
         .copy-btn-main {
             background-color: var(--accent-color);
             color: #001a1f; 
             border: none;
-            padding: 10px 18px;
+            padding: 10px 16px;
             border-radius: 10px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none; 
             transition: opacity 0.2s, box-shadow 0.2s, background-color 0.3s, color 0.3s;
             display: inline-block;
+            white-space: nowrap;
         }
         body.light-mode .copy-btn-main {
             color: #ffffff; 
@@ -312,7 +307,6 @@
             <div class="close-menu-row" onclick="toggleMenu()">
                 <span id="text-close">Đóng</span> <span class="close-icon">✖</span>
             </div>
-            <a href="https://tinyurl.com/Dung-IOS" target="_blank"><span class="menu-icon">🎮</span> <span id="text-coinmaster">Coinmaster</span></a>
             <a href="https://zalo.me/g/4mc0g7tsr46siyxq4bx6" target="_blank"><span class="menu-icon">💬</span> <span id="text-zalo">Nhóm Zalo</span></a>
             <a href="https://zalo.me/0963095545" target="_blank"><span class="menu-icon">👨‍💼</span> <span id="text-admin">Admin</span></a>
         </div>
@@ -326,7 +320,29 @@
                 <p>Phiên bản: Mới Nhất</p>
             </div>
         </div>
-        <a href="https://tinyurl.com/Dung-IOS" target="_blank" class="copy-btn-main">SAO CHÉP</a>
+        <a href="https://tinyurl.com/Dung-IOS" target="_blank" class="copy-btn-main">TẢI XUỐNG</a>
+    </div>
+
+    <div class="tool-card">
+        <div class="tool-left">
+            <div class="tool-icon">📜</div>
+            <div class="tool-details">
+                <h3>WEB CHỨNG CHỈ</h3>
+                <p>dungios.io.vn</p>
+            </div>
+        </div>
+        <a href="https://dungios.io.vn/" target="_blank" class="copy-btn-main">TRUY CẬP</a>
+    </div>
+
+    <div class="tool-card">
+        <div class="tool-left">
+            <div class="tool-icon">💬</div>
+            <div class="tool-details">
+                <h3>NHÓM ZALO</h3>
+                <p>Cộng đồng giao lưu</p>
+            </div>
+        </div>
+        <a href="https://zalo.me/g/4mc0g7tsr46siyxq4bx6" target="_blank" class="copy-btn-main">THAM GIA</a>
     </div>
 
     <div class="disclaimer-section">
