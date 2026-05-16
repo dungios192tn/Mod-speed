@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DungiOS - Header Menu</title>
+    <style>
+        /* Sử dụng biến CSS để dễ dàng chuyển đổi Sáng/Tối */
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --header-bg: #1c1c1e;
+            --btn-bg: #2c2c2e;
+            --btn-active: #444444;
+            --dropdown-bg: #2c2c2e;
+            --border-color: #3a3a3c;
+            --date-color: #d178e2;
+            --avatar-bg: #333333;
+            --close-color: #ff453a; /* Màu đỏ cho nút X */
+        }
+
+        /* Bảng màu cho Chế độ Sáng */
+        body.light-mode {
+            --bg-color: #f2f2f7;
+            --text-color: #000000;
+            --header-bg: #ffffff;
+            --btn-bg: #e5e5ea;
+            --btn-active: #d1d1d6;
+            --dropdown-bg: #ffffff;
+            --border-color: #e5e5ea;
+            --date-color: #af52bf;
+            --avatar-bg: #e5e5ea;
+            --close-color: #ff3b30;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Header Cá nhân */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--header-bg);
+            padding: 12px 15px;
+            border-radius: 16px;
+            position: relative;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--avatar-bg);
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: background-color 0.3s;
+        }
+        .user-info h2 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .user-info p {
+            margin: 3px 0 0;
+            font-size: 11px;
+            color: var(--date-color);
+            font-weight: bold;
+        }
+        
+        /* Các nút chức năng */
+        .header-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .action-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+            background-color: var(--btn-bg);
+            border: none;
+            color: var(--text-color);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.3s;
+        }
+        .action-btn:active {
+            background-color: var(--btn-active);
+        }
+
+        /* Menu thả xuống */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 15px;
+            background-color: var(--dropdown-bg);
+            min-width: 180px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 10;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        /* Nút X đóng menu */
+        .close-menu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            color: var(--close-color);
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .close-menu-row:active, .close-menu-row:hover {
+            background-color: var(--btn-bg);
+        }
+        .close-icon {
+            font-size: 18px;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 14px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s, color 0.3s;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-content a:hover, .dropdown-content a:active {
+            background-color: var(--btn-bg);
+        }
+        .menu-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* Lớp hiển thị menu */
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-top">
+        <div class="user-profile">
+            <div class="avatar">👨‍💻</div>
+            <div class="user-info">
+                <h2>Tiến Dũng</h2>
+                <p id="realtime-clock">16/05/2026 | 18:15:00</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="action-btn" id="langBtn" onclick="toggleLanguage()">VI</button>
+            <button class="action-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+            <!-- Nút Menu: ID được thêm để dễ dàng đổi icon ☰ thành ✖ nếu cần -->
+            <button class="action-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+        </div>
+
+        <!-- Khối Menu ẩn -->
+        <div id="myDropdown" class="dropdown-content">
+            <!-- Hàng chứa nút Đóng Menu (X) -->
+            <div class="close-menu-row" onclick="toggleMenu()">
+                <span id="text-close">Đóng</span> <span class="close-icon">✖</span>
+            </div>
+            <a href="#"><span class="menu-icon">🎮</span> <span id="text-coinmaster">Coinmaster</span></a>
+            <a href="#"><span class="menu-icon">💬</span> <span id="text-zalo">Nhóm Zalo</span></a>
+            <a href="#"><span class="menu-icon">👨‍💼</span> <span id="text-admin">Admin</span></a>
+        </div>
+    </div>
+
+    <script>
+        let isLightMode = false;
+        function toggleTheme() {
+            isLightMode = !isLightMode;
+            document.body.classList.toggle('light-mode');
+            document.getElementById('themeBtn').innerText = isLightMode ? '☀️' : '🌙';
+        }
+
+        let isVietnamese = true;
+        function toggleLanguage() {
+            isVietnamese = !isVietnamese;
+            document.getElementById('langBtn').innerText = isVietnamese ? 'VI' : 'EN';
+            document.getElementById('text-zalo').innerText = isVietnamese ? 'Nhóm Zalo' : 'Zalo Group';
+            document.getElementById('text-admin').innerText = isVietnamese ? 'Admin' : 'Contact Admin';
+            document.getElementById('text-close').innerText = isVietnamese ? 'Đóng' : 'Close';
+        }
+
+        // Bật/tắt menu và tự động đổi icon nút Menu (☰ <-> ✖)
+        function toggleMenu() {
+            const dropdown = document.getElementById("myDropdown");
+            const menuBtn = document.getElementById("menuBtn");
+            
+            dropdown.classList.toggle("show");
+            
+            // Đổi biểu tượng của nút 3 gạch thành X khi mở, và ngược lại
+            if (dropdown.classList.contains("show")) {
+                menuBtn.innerText = "✖";
+            } else {
+                menuBtn.innerText = "☰";
+            }
+        }
+
+        // Tự động đóng menu nếu người dùng bấm ra ngoài
+        window.onclick = function(event) {
+            if (!event.target.closest('.action-btn') && !event.target.closest('.close-menu-row')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var menuBtn = document.getElementById("menuBtn");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                        menuBtn.innerText = "☰"; // Trả lại icon 3 gạch
+                    }
+                }
+            }
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('realtime-clock').innerText = `${day}/${month}/${year} | ${hours}:${minutes}:${seconds}`;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock(); 
+    </script>
+
+</body>
+</html>
