@@ -726,6 +726,45 @@
         }
         setInterval(updateClock, 1000);
         updateClock(); 
+    function copyLink(text, btn) {
+        const span = btn.querySelector('span');
+        const oldText = span.innerText;
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(() => {
+                showSuccess(btn, span, oldText);
+            }).catch(() => fallbackCopy(text, btn, span, oldText));
+        } else {
+            fallbackCopy(text, btn, span, oldText);
+        }
+    }
+
+    function fallbackCopy(text, btn, span, oldText) {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showSuccess(btn, span, oldText);
+        } catch (err) {
+            alert('Không thể sao chép link!');
+        }
+        document.body.removeChild(textArea);
+    }
+
+    function showSuccess(btn, span, oldText) {
+        span.innerText = "✓ Đã chép!";
+        btn.style.borderColor = "#26c281";
+        btn.style.color = "#26c281";
+        setTimeout(() => {
+            span.innerText = oldText;
+            btn.style.borderColor = "rgba(0, 229, 255, 0.25)";
+            btn.style.color = "#7fe3ff";
+        }, 2000);
+    }
+
     </script>
 
 </body>
