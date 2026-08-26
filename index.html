@@ -479,6 +479,32 @@
         </div>
     </div>
 
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; margin-top: 30px; margin-bottom: 20px; background: rgba(0,0,0,0.25); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
+            <div style="font-size: 11px; color: rgba(255,255,255,0.5); font-weight: bold; text-transform: uppercase;">
+                © 2026 Tiến Dũng
+            </div>
+            
+            <div style="background: rgba(0, 229, 255, 0.1); padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: bold; color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.2);">
+                Lượt tc: <span id="luot-truy-cap">...</span>
+            </div>
+            
+            <div style="font-size: 11px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px; font-weight: bold;">
+                🇻🇳 Việt Nam
+            </div>
+        </div>
+        ```
+
+---
+
+### ⚙️ Bước 2: Chèn code chức năng đếm số
+
+1. Bây giờ, bạn vuốt màn hình kéo xuống **tận cùng dưới cùng** của file `index.html`.
+2. Bạn sẽ thấy các dòng cuối cùng đang trông như thế này:
+   ```html
+   </script>
+   </body>
+   </html>
+
 
     <div id="page-terms" class="legal-page">
         <div class="legal-lang-toggle">
@@ -794,6 +820,20 @@
     }
     // Chạy bộ đếm ngay khi mở web
     getDownloadCount();
+    // --- Code Đếm Lượt Truy Cập Trang Web ---
+    async function getPageViews() {
+        try {
+            const response = await fetch('https://api.counterapi.dev/v1/dungios192tn/page_views/up');
+            const data = await response.json();
+            const viewElement = document.getElementById('luot-truy-cap');
+            if (viewElement) {
+                viewElement.innerText = data.count.toLocaleString('vi-VN');
+            }
+        } catch (error) {
+            console.error('Lỗi đếm lượt truy cập:', error);
+        }
+    }
+    getPageViews();
 
     </script>
 
