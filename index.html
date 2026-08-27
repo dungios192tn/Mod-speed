@@ -775,7 +775,7 @@
         try {
             const response = await fetch('https://api.github.com/repos/dungios192tn/SPEED-COINMASTER/releases');
             const releases = await response.json();
-            let totalDownloads = 0;
+            let totalDownloads = 269;
             if (releases && releases.length > 0) {
                 releases.forEach(release => {
                     release.assets.forEach(asset => {
