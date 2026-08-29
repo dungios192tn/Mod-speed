@@ -804,6 +804,19 @@
 
 
     </script>
+    <!-- BẮT ĐẦU POPUP XEM ẢNH -->
+<div id="imageModal" onclick="this.style.display='none'" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+    <span style="position: absolute; top: 20px; right: 25px; color: white; font-size: 35px; font-weight: bold; cursor: pointer;">&times;</span>
+    <img id="modalImg" style="max-width: 90%; max-height: 80%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+</div>
+<script>
+    function openImageModal(imgSrc) {
+        document.getElementById("modalImg").src = imgSrc;
+        document.getElementById("imageModal").style.display = "flex";
+    }
+</script>
+<!-- KẾT THÚC POPUP XEM ẢNH -->
+
 
 </body>
 </html>
