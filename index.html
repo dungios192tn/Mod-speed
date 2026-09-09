@@ -454,29 +454,20 @@
             </div>
         </div>
         <!-- KẾT THÚC CARD COIN MASTER -->
-<!-- KHUNG NHẬP UDID VÀ CÀI ĐẶT -->
-<div id="khu-vuc-ky-esign" style="background: #1a1e29; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; scroll-margin-top: 80px;">
-    <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 15px 0; font-weight: bold;">CÀI ĐẶT ESIGN QUA OTA</h3>
-    
-    <input type="text" id="udidInput" placeholder="Nhập UDID thiết bị của bạn..." style="width: 90%; padding: 12px; border-radius: 8px; border: 1px solid #333; margin-bottom: 15px; background: #0f1219; color: white; text-align: center;">
-    
-    <button onclick="caiDatTuDong()" style="width: 90%; padding: 12px; background: #0084ff; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer;">
-        🚀 CÀI ĐẶT NGAY
-    </button>
+<!-- KHUNG NHẬP UDID VÀ CÀI ĐẶT (GIAO DIỆN TAB ĐỘC LẬP) -->
+<div id="khu-vuc-ky-esign" style="display: none; position: fixed; top: 75px; left: 0; width: 100%; height: calc(100% - 75px); background: #0f1219; z-index: 9000; overflow-y: auto;">
+    <div style="background: #1a1e29; padding: 20px; border-radius: 12px; margin: 15px; text-align: center;">
+        <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 15px 0; font-weight: bold;">CÀI ĐẶT ESIGN QUA OTA</h3>
+        
+        <input type="text" id="udidInput" placeholder="Nhập UDID thiết bị của bạn..." style="width: 90%; padding: 12px; border-radius: 8px; border: 1px solid #333; margin-bottom: 15px; background: #0f1219; color: white; text-align: center;">
+        
+        <button onclick="caiDatTuDong()" style="width: 90%; padding: 12px; background: #0084ff; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer;">
+            🚀 CÀI ĐẶT NGAY
+        </button>
+    </div>
 </div>
-
-<script>
-    function caiDatTuDong() {
-        var udid = document.getElementById("udidInput").value;
-        if(udid.trim() === "") {
-            alert("Vui lòng nhập mã UDID trước khi cài đặt!");
-            return;
-        }
-        // Link tự động cài đặt qua trang ipafile.download của bạn
-        window.location.href = "https://ipafile.download/?udid=" + udid;
-    }
-</script>
 <!-- KẾT THÚC KHUNG CÀI ĐẶT -->
+
 
      <div class="tool-card">
   <div class="tool-left">
@@ -840,22 +831,42 @@
 </script>
 <!-- KẾT THÚC POPUP XEM ẢNH -->
 
-<!-- THANH MENU DƯỚI ĐÁY MÀN HÌNH -->
+<!-- THANH MENU DƯỚI ĐÁY MÀN HÌNH NÂNG CẤP -->
 <div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #0f1219; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #2a2d35; z-index: 9999; padding-bottom: 25px;">
     
     <!-- Nút Trang chủ -->
-    <a href="#" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
+    <a href="javascript:void(0)" onclick="chonTab('trangchu')" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
         <span style="font-size: 22px;">🏠</span>
-        <span style="font-size: 10px; color: #888; font-weight: bold;">TRANG CHỦ</span>
+        <span id="text-trangchu" style="font-size: 10px; color: #0084ff; font-weight: bold;">TRANG CHỦ</span>
     </a>
 
-    <!-- Nút Ký eSign (Bấm vào sẽ cuộn tới id="khu-vuc-ky-esign") -->
-    <a href="#khu-vuc-ky-esign" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
+    <!-- Nút Ký eSign -->
+    <a href="javascript:void(0)" onclick="chonTab('esign')" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
         <span style="font-size: 22px;">✍️</span>
-        <span style="font-size: 10px; color: #0084ff; font-weight: bold;">KÝ ESIGN</span>
+        <span id="text-esign" style="font-size: 10px; color: #888; font-weight: bold;">KÝ ESIGN</span>
     </a>
 
 </div>
+
+<script>
+    function chonTab(tabName) {
+        var khungEsign = document.getElementById('khu-vuc-ky-esign');
+        var txtTrangChu = document.getElementById('text-trangchu');
+        var txtEsign = document.getElementById('text-esign');
+
+        if (tabName === 'esign') {
+            khungEsign.style.display = 'block';
+            txtEsign.style.color = '#0084ff';
+            txtTrangChu.style.color = '#888';
+            window.scrollTo(0, 0); 
+        } else {
+            khungEsign.style.display = 'none';
+            txtTrangChu.style.color = '#0084ff';
+            txtEsign.style.color = '#888';
+        }
+    }
+</script>
+
 
 </body>
 </html>
