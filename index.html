@@ -474,8 +474,11 @@
             alert("Vui lòng nhập mã UDID trước khi cài đặt!");
             return;
         }
-        // Lệnh chuyển hướng sang trang web xử lý của bạn
-        window.location.href = "https://ipafile.download/?udid=" + udid;
+        
+        // Link lách mã bảo mật để thử vào thẳng trang eSIGN
+        var linkChuan = "https://ipafile.download/welcome/app_install?app=esign&install=esign&udid=" + udid;
+        
+        window.location.href = linkChuan;
     }
 </script>
 
