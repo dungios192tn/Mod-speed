@@ -926,8 +926,8 @@
 </body>
 </html>
 
-<!-- THANH MENU DƯỚI ĐÁY MÀN HÌNH NÂNG CẤP -->
-<div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #0f1219; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #2a2d35; z-index: 9999; padding-bottom: 25px;">
+<!-- THANH MENU DƯỚI ĐÁY -->
+<div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1e29; border-top: 1px solid #2a2d35; display: flex; justify-content: space-around; padding: 10px 0; padding-bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 9999;">
     
     <!-- Nút Trang chủ -->
     <a href="javascript:void(0)" onclick="chonTab('trangchu')" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
@@ -935,16 +935,43 @@
         <span id="text-trangchu" style="font-size: 10px; color: #0084ff; font-weight: bold;">TRANG CHỦ</span>
     </a>
 
-        <!-- Nút Ký eSign chuyển thẳng sang trang tổng -->
-    <a href="https://ipafile.download/welcome/app_install?app=esign" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
+    <!-- Nút Ký eSign VIP (Bay sang ipafile.download) -->
+    <a href="https://ipafile.download/" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
         <span style="font-size: 22px;">✍️</span>
         <span style="font-size: 10px; color: #888; font-weight: bold;">KÝ ESIGN</span>
     </a>
 
-
+    <!-- Nút eSign Free (Mở khung 5 chứng chỉ) -->
+    <a href="javascript:void(0)" onclick="chonTab('esign-free')" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px;">
+        <span style="font-size: 22px;">🎁</span>
+        <span id="text-esign-free" style="font-size: 10px; color: #888; font-weight: bold;">ESIGN FREE</span>
+    </a>
 </div>
 
-
-
+<script>
+    function chonTab(tabName) {
+        var khungTrangChu = document.getElementById('khu-vuc-trang-chu');
+        var khungEsignFree = document.getElementById('khu-vuc-esign-free');
+        var txtTrangChu = document.getElementById('text-trangchu');
+        var txtEsignFree = document.getElementById('text-esign-free');
+        
+        if(khungTrangChu) khungTrangChu.style.display = 'none';
+        if(khungEsignFree) khungEsignFree.style.display = 'none';
+        
+        if(txtTrangChu) txtTrangChu.style.color = '#888';
+        if(txtEsignFree) txtEsignFree.style.color = '#888';
+        
+        if (tabName === 'trangchu') {
+            if(khungTrangChu) khungTrangChu.style.display = 'block';
+            if(txtTrangChu) txtTrangChu.style.color = '#0084ff';
+        } 
+        else if (tabName === 'esign-free') {
+            if(khungEsignFree) khungEsignFree.style.display = 'block';
+            if(txtEsignFree) txtEsignFree.style.color = '#0084ff';
+        }
+        window.scrollTo(0, 0);
+    }
+</script>
 </body>
 </html>
+
