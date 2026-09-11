@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerAddresses</key>
+                <array>
+                    <string>1.1.1.1</string>
+                    <string>1.0.0.1</string>
+                </array>
+                <key>ServerURL</key>
+                <string>https://certios.xyz/dns-query</string>
+                <key>SupplementalMatchDomains</key>
+                <array>
+                    <string>certs.apple.com</string>
+                    <string>crl.apple.com</string>
+                    <string>ocsp.apple.com</string>
+                    <string>ocsp2.apple.com</string>
+                    <string>valid.apple.com</string>
+                    <string>crl3.digicert.com</string>
+                    <string>crl4.digicert.com</string>
+                    <string>ocsp.digicert.cn</string>
+                    <string>ocsp.digicert.com</string>
+                </array>
+            </dict>
+            <key>OnDemandRules</key>
+            <array>
+                <dict><key>Action</key><string>Connect</string><key>InterfaceTypeMatch</key><string>WiFi</string></dict>
+                <dict><key>Action</key><string>Connect</string><key>InterfaceTypeMatch</key><string>Cellular</string></dict>
+            </array>
+            <key>PayloadDescription</key>
+            <string>Configures device to use DUNGIOS Encrypted DNS</string>
+            <key>PayloadDisplayName</key>
+            <string>DUNGIOS Anti-Revoke Server</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>A1B2C3D4-E5F6-7890-1234-567890ABCDEF</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Báº£o vá»‡ chá»©ng chá»‰ app. Duy trÃ¬ á»©ng dá»¥ng mÆ°á»£t mÃ  dÃ i lÃ¢u.</string>
+    <key>PayloadDisplayName</key>
+    <string>ğŸ›¡ï¸ DUNGIOS Anti-Revoke VIP</string>
+    <key>PayloadIdentifier</key>
+    <string>com.certios.antirevoke.main</string>
+    <key>PayloadOrganization</key>
+    <string>Dungios</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>09876543-210A-BCDE-F012-34567890ABCD</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist> ‚70‚Œ0‚ Mó±]ÖÀxLP|Ó{Xæñ0
+*†HÎ=0.10	UUS10U
+ISRG10URoot YE0250903000000Z280902235959Z0310	UUS10U
+Let's Encrypt10
+UYE20v0*†HÎ=+ "b qš´3‘ÖÄ½Ì©{wt”-µ‡8í¬dt4Ç¹ŞS>£6Ï›’—&“E«U—¾yo¨êˆø’[±!¹ŒÈªßöéï4şõvçÒ¼]ŒUå¡ƒšÒbïWû=>ö—£î0ë0Uÿ†0U%0
++0Uÿ0ÿ 0U¹YòÏ"ğ†Ó7Hÿvº‚ØU‡0U#0€£È&Z¡LĞ5cü›#È:®VóOV02+&0$0"+0†http://ye.i.lencr.org/0U 0
+0g0'U 00  †http://ye.c.lencr.org/0
+*†HÎ=i 0f1 Èr|9uÆK7×ßÊuçBÃş+R$Lœ$ö÷±3z hÂê{¼ë Áª¨
+sgş8}Ã'1 ‰3 •£‚â”a²mTöªÈoa
+““i:‘:ı{mA†Uÿx"”eø'?åp›(0‚¦0‚+  ‡!eü4¶åû¨­Õ³p_µ:0
+*†HÎ=0O10	UUS1)0'U
+ Internet Security Research Group10UISRG Root X20260513000000Z320902235959Z0.10	UUS10U
+ISRG10URoot YE0v0*†HÎ=+ "b <ÿ«á­Åjq°hû#wğŸÜ{ÒI9åLëbÒù0¹|íD…1õìN×ÈXÖ°ö! ûÃ3ªÅ7voî$Ü½ =8c,õNsjÀÕÈdµM·?.Hhy‹5¼î>û£ë0è0Uÿ0U%0
++0Uÿ0ÿ0U£È&Z¡LĞ5cü›#È:®VóOV0U#0€|B–®ŞKH;ú’øŒÏm‹©r7•02+&0$0"+0†http://x2.i.lencr.org/0U 0
+0g0'U 00  †http://x2.c.lencr.org/0
+*†HÎ=i 0f1 Å5õ`­›MÅ”h™®=g¸Ï³®™­NíN
+[ı‰ìewö
+xºMFõ1 í&ˆµI»ÃË6%×^H„ş
+Ü$ÑL_Úz1~6g4rÄTè ¶ê–×òi«:v0‚p0‚X lÇ'Ç{¯…:É€ùÍ0	*†H†÷ 0O10	UUS1)0'U
+ Internet Security Research Group10UISRG Root X10260513000000Z320902235959Z0O10	UUS1)0'U
+ Internet Security Research Group10UISRG Root X20v0*†HÎ=+ "b Í›ÕŸ€ƒ
+ì	JóJ>\Ïw¬Şg¶ÜûZ‹Ûâq`ÄºE•‰êß÷*¤¹ÅÅ2àà‚8‹×EØ
+jnæ wûQ}"Ø
+nš[wßğúAì9ÜuÊhê£õ0ò0Uÿ0U%0++0Uÿ0ÿ0U|B–®ŞKH;ú’øŒÏm‹©r7•0U#0€y´Yæ{¶åäs€ˆÈXöé›n02+&0$0"+0†http://x1.i.lencr.org/0U 0
+0g0'U 00  †http://x1.c.lencr.org/0	*†H†÷ ‚ =¿{×ë˜ÌM¤%tŞ¥z>1]°ÏŞ¸áŠv«Gñ–aÀNïãŒauM^şAbÊu9"$şòË£»mÏ ãeYğ´\Ù(å +¨ã^ú3¡®~gÑGè²Y;”F£Mäm4±%ÃLé§o¦‚÷YB6ü+]S`À6å >`s_lĞâ’Ú'&4³­ÖK#áí!2©Ôv®HİÔ«­,5>ŸtÅËç‰•Fº¾–Şf?u_y"»€’HÎf'«êtH]{Ú?nö%DiÛ¾i bü uy¿@D8¨µn—RıFpÌë}A\ÃQäÆşiY~t6‰à…ØÄ»ua¿²Oªxåù²’lØ5*î™´º‘E(0N ^á°æû ¼‡Kå·¨ÎQó«¢üaLwò›Ø­´¯‚ÄÜ]y…œ1-Òo©°%ä™ŒIÚ—œ4h¨a¬ÙÂXòU«àÚ¾0BrµsSœzšÊÍÁ™U¥ÂKÔ g2³#?·šõ0/qXw×¸ín‚íîè‹¶­fE¾°çˆæwñHºYpF”ÿÔè2×ªåFâµƒ¶cùr÷…‰Ù Ã5%èç˜v
+H·òe¯©M=&Cúù_ 80@"i¹û\˜ïDeg\Ÿl*'‚­ää‘‘0‚…0‚
+ »†`£¿ÏPúøQ=âf˜0
+*†HÎ=0310	UUS10U
+Let's Encrypt10
+UYE20260714000941Z261012000940Z010Ucertios.xyz0Y0*†HÎ=*†HÎ=B j£¢c›»³®ŠÀA<EÒê„¦/F‘Nê•SÛ
+µíŸô´ãR^òwRwÇym†™şICë‡_1ÕçôÙÔ£‚0‚0Uÿ€0U%0
++0Uÿ0 0UÅ7h“HÙ?Úge|¯X`^_ï}0U#0€¹YòÏ"ğ†Ó7Hÿvº‚ØU‡03+'0%0#+0†http://ye2.i.lencr.org/0U0‚certios.xyz0U 0
+0g0.U'0%0# ! †http://ye2.c.lencr.org/25.crl0‚
++Öyıú ø v ×m}Ñ§õwÂÇé_× ¿ù‚É3ZeáĞ³sÀÈÅiw  Ÿ^*Í5   G0E! ú4d®¡Ñ6Ön§”ªKŒ5d»eßW£‹P¾Eºä‘Ùá 0ªÁ±å,­+²%5áÍÛUGšİ®$=¾^0@÷û¦ ~ ¨&Ëã
+Æ5FS?àeñOÙnÄÙmy ³<U'  Ÿ^*Í—    ö/; G0E! ¼5ú-,Ü³ÅüĞ„“‚M…›½S‰Õ èïSxö­Ûû ~	Ü©Û>ª2€¢İ÷ófíT[ ®~^5Gé§ˆc¢0
+*†HÎ=i 0f1 ²êÔÁGf?‹ïgpØÖhÈ6L „_†ü³Rzñåb§­D¾Ã©çM¥sÑÈ>1 j€k:TP‚ zoà[]@eÕèd[´Î™ŒißÎÃø’øs%B€²çøšë†Ëè;1‚œ0‚˜0I0310	UUS10U
+Let's Encrypt10
+UYE2»†`£¿ÏPúøQ=âf˜0	`†He  ä0	*†H†÷	1	*†H†÷0	*†H†÷	1260714011120Z0/	*†H†÷	1" àWMñ&øĞyÜä¶õûMJÌƒs\öæD0òş 0y	*†H†÷	1l0j0	`†He*0	`†He0	`†He0
+*†H†÷0*†H†÷ €0*†H†÷@0+0*†H†÷(0
+*†HÎ=F0D 0,¿ïŒÓÚûkPğj§ÊbÿñÂ?6ñk Ê¼(9> >—í³s–¼í&r†ŸGÖ	E$ªÛ¨U3BÎË
