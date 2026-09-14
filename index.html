@@ -858,38 +858,30 @@
         }
 
 
-                 // --- BỘ ĐẾM TRUY CẬP WEB THÔNG MINH ---
+                 
+              // --- BỘ ĐẾM TRUY CẬP ĐỒNG BỘ MỌI MÁY ---
         async function getVisitCount() {
             try {
-                // 1. Gọi số thật từ máy chủ (Link chuẩn gốc)
-                const response = await fetch('https://api.counterapi.dev/v1/tiendungiosclick/visits/up');
+                // Ép trình duyệt không dùng cache, chỉ gọi số thật từ Server
+                const response = await fetch('https://api.counterapi.dev/v1/tiendungiosclick/visits/up', {
+                    cache: 'no-store' 
+                });
                 const data = await response.json();
                 
                 const viewElement = document.getElementById('tong-truy-cap');
                 if (viewElement) {
                     let realCount = Number(data.count) || 0; 
-                    
-                    // 2. Mẹo: Lưu số lần người dùng tự vuốt tải lại trang
-                    let bonus = Number(sessionStorage.getItem('luot_vuot')) || 0;
-                    bonus += 1;
-                    sessionStorage.setItem('luot_vuot', bonus);
-                    
-                    // 3. Ép số nhảy ngay lập tức với gốc 3500
-                    let totalViews = 3500 + realCount + (realCount === 0 ? bonus : bonus - 1);
+                    // Cộng số thật với số nền 9200
+                    let totalViews = 9200 + realCount; 
                     viewElement.innerText = totalViews.toLocaleString('vi-VN');
                 }
             } catch (error) {
-                // Nếu Safari chặn API hoặc lỗi mạng, vẫn ép số nhảy lên cho uy tín
+                console.error('Lỗi Server:', error);
                 const viewElement = document.getElementById('tong-truy-cap');
-                if (viewElement) {
-                    let bonus = Number(sessionStorage.getItem('luot_vuot')) || 0;
-                    bonus += 1;
-                    sessionStorage.setItem('luot_vuot', bonus);
-                    viewElement.innerText = (3500 + bonus).toLocaleString('vi-VN');
-                }
+                if (viewElement) viewElement.innerText = "9.299"; 
             }
         }
-      
+
              
 
 
