@@ -858,15 +858,18 @@
         }
 
 
-                      // --- BỘ ĐẾM TRUY CẬP WEB ---
+                 // --- BỘ ĐẾM TRUY CẬP WEB ---
         async function getVisitCount() {
             try {
-                const response = await fetch('https://api.counterapi.dev/v1/tiendungiosclick/visits/up');
+                // Thêm thời gian thực vào link để lừa Safari không dùng bộ nhớ tạm
+                const noCacheUrl = 'https://api.counterapi.dev/v1/tiendungiosclick/visits/up?time=' + new Date().getTime();
+                const response = await fetch(noCacheUrl, { cache: 'no-store' });
                 const data = await response.json();
+                
                 const viewElement = document.getElementById('tong-truy-cap');
                 if (viewElement) {
-                    // Xử lý lỗi NaN: Ép kiểu về số, nếu API lỗi thì gán bằng 0
-                    let realCount = Number(data.count) || 0; 
+                    // Hỗ trợ chống lỗi đọc dữ liệu từ máy chủ
+                    let realCount = Number(data.count) || Number(data.value) || 0; 
                     let totalViews = realCount + 9200; 
                     viewElement.innerText = totalViews.toLocaleString('vi-VN');
                 }
@@ -876,6 +879,7 @@
                 if (viewElement) viewElement.innerText = "9.299"; 
             }
         }
+             
 
 
         // --- KHỞI CHẠY TẤT CẢ ---
