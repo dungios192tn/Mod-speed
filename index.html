@@ -508,26 +508,19 @@
         }
     };
 
-    function caiDatTuDong() {
-        var udid = document.getElementById('udidInput').value;
+        function caiDatTuDong() {
+        var udid = document.getElementById("udidInput").value;
         if(udid.trim() === "") {
-            alert("Vui lòng nhập mã UDID trước khi tiếp tục!");
+            alert("Vui lòng nhập mã UDID trước khi cài đặt!");
             return;
         }
-        // ... các code cũ bên dưới giữ nguyên
+        
+        // Link lách mã bảo mật để thử vào thẳng trang eSIGN
+        var linkChuan = "https://ipafile.download/welcome/app_install?app=esign&install=esign&udid=" + udid;
+        
+        window.location.href = linkChuan;
+    }
 
-                function caiDatTuDong() {
-                    var udid = document.getElementById("udidInput").value;
-                    if(udid.trim() === "") {
-                        alert("Vui lòng nhập mã UDID trước khi cài đặt!");
-                        return;
-                    }
-                    
-                    // Link lách mã bảo mật để thử vào thẳng trang eSIGN
-                    var linkChuan = "https://ipafile.download/welcome/app_install?app=esign&install=esign&udid=" + udid;
-                    
-                    window.location.href = linkChuan;
-                }
             </script>
 
             <div class="tool-card">
