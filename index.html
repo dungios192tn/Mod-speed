@@ -490,13 +490,32 @@
                     
                     <input type="text" id="udidInput" placeholder="Nhập UDID thiết bị của bạn..." style="width: 90%; padding: 12px; border-radius: 8px; border: 1px solid #333; margin-bottom: 15px; background: #0f1219; color: white; text-align: center;">
                     
-                    <button onclick="caiDatTuDong()" style="width: 90%; padding: 12px; background: #0084ff; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer;">
-                        🚀 CÀI ĐẶT NGAY
-                    </button>
+<a href="https://tiendungios.click/profile.mobileconfig" style="display: block; text-align: center; background-color: #007aff; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">🚀 CÀI ĐẶT NGAY LẤY UDID</a>
+                    
                 </div>
             </div>
             <!-- KẾT THÚC KHUNG CÀI ĐẶT -->
             <script>
+                
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const udidFromUrl = urlParams.get('udid');
+        if (udidFromUrl) {
+            var inputUdid = document.getElementById('udidInput');
+            if (inputUdid) {
+                inputUdid.value = udidFromUrl;
+            }
+        }
+    };
+
+    function caiDatTuDong() {
+        var udid = document.getElementById('udidInput').value;
+        if(udid.trim() === "") {
+            alert("Vui lòng nhập mã UDID trước khi tiếp tục!");
+            return;
+        }
+        // ... các code cũ bên dưới giữ nguyên
+
                 function caiDatTuDong() {
                     var udid = document.getElementById("udidInput").value;
                     if(udid.trim() === "") {
